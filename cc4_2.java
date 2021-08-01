@@ -20,7 +20,7 @@ import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
 import java.util.PriorityQueue;
 
-public class cc4test {
+public class cc4_2 {
     public static byte[] serialize(final Object obj) throws Exception {
         ByteArrayOutputStream btout = new ByteArrayOutputStream();
         ObjectOutputStream objOut = new ObjectOutputStream(btout);
